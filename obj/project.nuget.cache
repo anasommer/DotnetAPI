@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IwCoJvDLjTM=",
+  "dgSpecHash": "T9QiIjgTcMQ=",
   "success": true,
-  "projectFilePath": "/Users/anastassiasommer/Desktop/Projects/DotnetAPI/DotnetAPI.csproj",
+  "projectFilePath": "/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/DotnetAPI.csproj",
   "expectedPackageFiles": [
     "/Users/anastassiasommer/.nuget/packages/automapper/14.0.0/automapper.14.0.0.nupkg.sha512",
     "/Users/anastassiasommer/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
