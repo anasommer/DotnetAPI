@@ -24,36 +24,30 @@ public class UserEFController : ControllerBase
     [HttpGet("GetSingleUser/{userId}")]
     public User GetSingleUser(int userId)
     {
-        string sql = @"
-           SELECT [UserId],
-                [FirstName],
-                [LastName],
-                [Email],
-                [Gender],
-                [Active]
-            FROM TutorialAppSchema.Users 
-            WHERE UserId = " + userId.ToString();
-        User user = _dapper.LoadDataSingle<User>(sql);
-        return user;
+        User? user = _entityFramework.Users
+            .Where(u => u.UserId == userId)
+            .FirstOrDefault<User>();
+
+        if (user != null)
+        {
+            return user;
+        }
+
+        throw new Exception("Failed to Get User");
+       
     }
 
     [HttpPut("EditUser")]
     public IActionResult EditUser(User user)
     {
-        string sql = @"
-            UPDATE TutorialAppSchema.Users  
-                SET [FirstName] = '" + user.FirstName +
-                "', [LastName] = '" + user.LastName +
-                "', [Email] = '" + user.Email +
-                "', [Gender] = '" + user.Gender +
-                "', [Active] = '" + user.Active +
-                "' WHERE UserId = " + user.UserId;
+        User? user = _entityFramework.Users
+            .Where(u => u.UserId == userId)
+            .FirstOrDefault<User>();
 
-        if (_dapper.ExecuteSql(sql))
+        if (user != null)
         {
-            return Ok();
+            return user;
         }
-
         throw new Exception("Failed to Update User");
     }
 
