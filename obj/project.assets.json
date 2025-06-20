@@ -2349,11 +2349,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/anastassiasommer/Desktop/Projects/DotnetAPI/DotnetAPI.csproj",
+      "projectUniqueName": "/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/DotnetAPI.csproj",
       "projectName": "DotnetAPI",
-      "projectPath": "/Users/anastassiasommer/Desktop/Projects/DotnetAPI/DotnetAPI.csproj",
+      "projectPath": "/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/DotnetAPI.csproj",
       "packagesPath": "/Users/anastassiasommer/.nuget/packages/",
-      "outputPath": "/Users/anastassiasommer/Desktop/Projects/DotnetAPI/obj/",
+      "outputPath": "/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/anastassiasommer/.nuget/NuGet/NuGet.Config"

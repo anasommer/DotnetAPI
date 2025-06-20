@@ -160,3 +160,12 @@
 /Users/anastassiasommer/Desktop/Projects/DotnetAPI/obj/Debug/net9.0/DotnetAPI.pdb
 /Users/anastassiasommer/Desktop/Projects/DotnetAPI/obj/Debug/net9.0/DotnetAPI.genruntimeconfig.cache
 /Users/anastassiasommer/Desktop/Projects/DotnetAPI/obj/Debug/net9.0/ref/DotnetAPI.dll
+/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/bin/Debug/net9.0/System.Formats.Asn1.dll
+/Users/anastassiasommer/Desktop/dotnet-course-code/DotnetAPI/bin/Debug/net9.0/System.Text.Json.dll

@@ -24,14 +24,15 @@ namespace DotnetAPI.Data
                         optionsBuilder => optionsBuilder.EnableRetryOnFailure());
             }
         }
-    }
+    
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("TutorialSchema");
+            modelBuilder.HasDefaultSchema("TutorialAppSchema");
 
             modelBuilder.Entity<User>()
-                .ToTable("Users", "TutorialSchema")
+                .ToTable("Users", "TutorialAppSchema")
                 .HasKey(u => u.UserId);
 
             modelBuilder.Entity<UserSalary>()
@@ -40,4 +41,6 @@ namespace DotnetAPI.Data
             modelBuilder.Entity<UserJobInfo>()
                 .HasKey(u => u.UserId);
         }
+    }
+
 }

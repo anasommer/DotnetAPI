@@ -1,3 +1,4 @@
+using AutoMapper;
 using DotnetAPI.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,9 +9,14 @@ namespace DotnetAPI.Controllers;
 public class UserEFController : ControllerBase
 {
     DataContextEF _entityFramework;
+    IMapper _mapper;
     public UserEFController(IConfiguration config)
     {
         _entityFramework = new DataContextEF(config);
+        _mapper = new Mapper(new MapperConfiguration(cfg =>
+        {
+            cfg.CreateMap<UserToAddDTO, User>();
+        }));
     }
 
 
@@ -40,13 +46,22 @@ public class UserEFController : ControllerBase
     [HttpPut("EditUser")]
     public IActionResult EditUser(User user)
     {
-        User? user = _entityFramework.Users
-            .Where(u => u.UserId == userId)
+        User? userDb = _entityFramework.Users
+            .Where(u => u.UserId == user.UserId)
             .FirstOrDefault<User>();
 
-        if (user != null)
+        if (userDb != null)
         {
-            return user;
+            userDb.Active = user.Active;
+            userDb.FirstName = user.FirstName;
+            userDb.LastName = user.LastName;
+            userDb.Email = user.Email;
+            userDb.Gender = user.Gender;
+
+            if (_entityFramework.SaveChanges() > 0)
+            {
+                return Ok();
+            }
         }
         throw new Exception("Failed to Update User");
     }
@@ -54,40 +69,34 @@ public class UserEFController : ControllerBase
     [HttpPost("AddUser")]
     public IActionResult AddUser(UserToAddDTO user)
     {
-        string sql = @"INSERT INTO TutorialAppSchema.Users(
-                [FirstName],
-                [LastName],
-                [Email],
-                [Gender],
-                [Active] 
-                ) VALUES (" +
-                    "'" + user.FirstName +
-                    "','" + user.LastName +
-                    "','" + user.Email +
-                    "','" + user.Gender +
-                    "','" + user.Active +
-                "')";
+        User userDb = _mapper.Map<User>(user);
 
-        if (_dapper.ExecuteSql(sql))
+        _entityFramework.Add(userDb);
+
+        if (_entityFramework.SaveChanges() > 0)
         {
             return Ok();
         }
-
+        
         throw new Exception("Failed to Add User");
     }
 
     [HttpDelete("DeleteUser/{userId}")]
     public IActionResult DeleteUser(int userId)
     {
-        string sql = @"
-            DELETE FROM TutorialAppSchema.Users
-                WHERE UserId =" + userId.ToString();
-               
-        if (_dapper.ExecuteSql(sql))
-        {
-            return Ok();
-        }
+       User? userDb = _entityFramework.Users
+            .Where(u => u.UserId == userId)
+            .FirstOrDefault<User>();
 
+        if (userDb != null)
+        {
+            _entityFramework.Users.Remove(userDb);
+
+            if (_entityFramework.SaveChanges() > 0)
+            {
+                return Ok();
+            }
+        }
         throw new Exception("Failed to Delete User");
     }
     
